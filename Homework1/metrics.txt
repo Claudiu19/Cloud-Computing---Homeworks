@@ -1,0 +1,1 @@
+{"random-average": 0.09626073292919937, "pokemon-average": 0.11741700087249599, "card-average": 0.11075646099059287, "total-average": 0.32461450350310156, "clients": "13"}
