@@ -1,0 +1,30 @@
+import sqlite3
+#
+conn = sqlite3.connect('magazin.db')
+# # conn.execute('''CREATE TABLE users (username, password, user_id, auth_level)''')
+# # conn.execute('''CREATE TABLE logged_users (user_id, auth_token)''')
+# # conn.execute('''CREATE TABLE categories (name, cat_id)''')
+# # conn.execute('''CREATE TABLE products (name, cat_id, product_id, price, desc)''')
+# conn.execute("INSERT INTO users VALUES ('test1', 'test1', 1, 1)")
+# conn.execute("INSERT INTO users VALUES ('test2', 'test2', 2, 2)")
+# # conn.execute("INSERT INTO users VALUES ('test3', 'test3', 3, 3)")
+# # conn.execute("INSERT INTO categories VALUES ('Electronics', 1)")
+# # conn.execute("INSERT INTO categories VALUES ('Clothing', 2)")
+# # conn.execute("INSERT INTO categories VALUES ('Books', 3)")
+# conn.execute("INSERT INTO products VALUES ('Fridge 2000', 1, 1, 800, 'Best fridge in the market!')")
+# # conn.execute("INSERT INTO products VALUES ('Pip-boy', 1, 2, 1000, 'For all your post-apocalyptic needs!')")
+# # conn.execute("INSERT INTO products VALUES ('Smartphone 2019', 1, 3, 3000, 'Compared to the 2018 model, it has an extra camera!')")
+# # conn.execute("INSERT INTO products VALUES ('Cowboy Hat', 2, 4, 100, 'YEEHAW')")
+# # conn.execute("INSERT INTO products VALUES ('Reasonable shoes', 2, 5, 50, 'A good choice')")
+# # conn.execute("INSERT INTO products VALUES ('Expensive plain shirt', 2, 6, 600, 'You really have a lot of money...')")
+# # conn.execute("INSERT INTO products VALUES ('How to get rich quick', 3, 7, 100, 'Write a book')")
+# # conn.execute("INSERT INTO products VALUES ('1984', 3, 8, 100, 'This is entirelly fictional... right?')")
+# # conn.execute("INSERT INTO products VALUES ('The Adventures of Sherlock Holmes', 3, 9, 100, 'Not the one played by Benedict Cumberbatch')")
+conn.execute("INSERT INTO products VALUES ('Sherlock Holmes', 6, 10, 100, 'Not the one played by Benedict Cumberbatch')")
+conn.commit()
+#
+# a = '1984'
+# print(list(conn.execute('Select * FROM categories WHERE cat_id = 1'))[0][0])
+# a = {"a": 1, "b": 2}
+# print(len(a))
+print(list(conn.execute('Select * FROM categories')))

@@ -1,0 +1,875 @@
+{
+	"info": {
+		"_postman_id": "fff5fcc8-657f-4055-8981-bf460ff5be24",
+		"name": "CC_Homework2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Good Requests",
+			"item": [
+				{
+					"name": "127.0.0.1:8000/delete_category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 1435369378,\n\t\"cat_id\": 2\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/delete_category",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"delete_category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/delete_product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 1435369378,\n\t\"product_id\": 2\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/delete_product",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"delete_product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 1435369378,\n\t\"user_id\": 2\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/delete_user",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"delete_user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"test3\",\n\t\"pass\":\"test3\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/add_category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\":1435369378,\n\t\"cat_name\":\"Stuff\",\n\t\"cat_id\":4\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/add_category",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/modify_price",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\":1435369378,\n\t\"prod_id\":1,\n\t\"new_price\":300\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/modify_price",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"modify_price"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/modify_auth_level",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\":1435369378,\n\t\"user_id\":1,\n\t\"new_auth_level\":2\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/modify_auth_level",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"modify_auth_level"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/category?id=1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/category?id=1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/categories",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/category?category=Electronics",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/category?category=Electronics",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Electronics"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/products",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/products?category_id=1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/products?category_id=1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/product?product_id=4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/product?product_id=4",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bad Requests",
+			"item": [
+				{
+					"name": "127.0.0.1:8000/category?category=abdc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/category?category=abdc",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "abdc"
+								}
+							]
+						},
+						"description": "No category with this name"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/category?id=7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/category?id=7",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						},
+						"description": "No category with this id"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/products?category_id=7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/products?category_id=7",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "7"
+								}
+							]
+						},
+						"description": "No products of this category"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/product",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/product?product_id=11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/product?product_id=11",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/product?asdf=11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/product?asdf=11",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "asdf",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/product234",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/product234",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"product234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/login1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"test\",\n\t\"pass\":\"test1\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "The same result if the password is wrong, the user is wrong or both are wrong"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/login2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"test\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "The same result if only the password was sent"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/add_category1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\":1435369376,\n\t\"cat_name\":\"Stuff\",\n\t\"cat_id\":4\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/add_category",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_category"
+							]
+						},
+						"description": "Invalid auth token"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/add_category2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\":1435369378,\n\t\"cat_name\":\"Stuff\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/add_category",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_category"
+							]
+						},
+						"description": "Same result with name and id not provided"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/add_category3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\":1435369378,\n\t\"cat_name\":\"Stuff\",\n\t\"cat_id\":3\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/add_category",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_category"
+							]
+						},
+						"description": "The same if either the name or id already exists in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/add_category4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"cat_name\":\"Stuff\",\n\t\"cat_id\":3\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/add_category",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_category"
+							]
+						},
+						"description": "The same result to any request which needs the auth_token and it is not provided"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/modify_auth_level1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 2064306144,\n\t\"user_id\":1,\n\t\"new_auth_level\":2\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/modify_auth_level",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"modify_auth_level"
+							]
+						},
+						"description": "Inssuficient Authorization"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/modify_auth_level2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 1435369378,\n\t\"user_id\":1\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/modify_auth_level",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"modify_auth_level"
+							]
+						},
+						"description": "Invalid Paramethers"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/modify_auth_level3",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 1435369378,\n\t\"user_id\":6,\n\t\"new_auth_level\":2\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/modify_auth_level",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"modify_auth_level"
+							]
+						},
+						"description": "If the user_id is not in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:8000/delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auth_token\": 1435369378,\n\t\"user_id\":6\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/delete_user",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"delete_user"
+							]
+						},
+						"description": "It is the same for delete_ product and delete_category, if the user is not found"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
