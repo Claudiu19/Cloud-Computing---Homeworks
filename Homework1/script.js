@@ -10,12 +10,14 @@ function behaviour(){
     Http.open("GET", url)
     Http.send()
     Http.onreadystatechange=(e)=>{
-    var resp = JSON.parse(Http.responseText)
-    console.log(resp)
-    if(resp.number.len<3){
-        resp.number = '0' + resp.number
+    if(Http.readyState === 4 && Http.status === 200) {
+        var resp = JSON.parse(Http.responseText)
+        console.log(resp)
         if(resp.number.len<3){
             resp.number = '0' + resp.number
+            if(resp.number.len<3){
+                resp.number = '0' + resp.number
+            }
         }
     }
     var node = document.createElement("H2")
