@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Register</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	</head>
+	<body>
+	<div>
+		<div class="register">
+			<h1>Register</h1>
+			<div class="links">
+				<a href="{{ url_for('login') }}">Login</a>
+				<a href="{{ url_for('register') }}" class="active">Register</a>
+			</div>
+			<form action="{{ url_for('register') }}" method="post" autocomplete="off" id="formRegister" onsubmit="return submitRegister(event)">
+				<div class="msg" id="msgError" style="width:90%;text-align:center;margin-bottom:15px;">{{ msg }}</div>
+				<label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="email" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<label for="phone">Phone</label>
+				<input type="text" name="phone" placeholder="07XXXXXXXX" id="phone" required>
+				<div style="width:90%;display:flex;margin-bottom: 20px;margin-left:40px;" id="divPersonType">
+					<div>
+					  <input type="radio" id="pf" name="personType" value="pf" class="personTypeCls">
+					  <label for="pf" style="width:100px;display:inline-block;height:25px;padding-left:14px;">Individual</label>
+					</div>
+					<div style="margin-left:50px;">
+					  <input type="radio" id="pj" name="personType" value="pj" class="personTypeCls">
+					  <label for="pj" style="width:100px;display:inline-block;height:25px;padding-left:14px;">Company</label>
+					</div>
+				</div>
+				<label for="CNP" id="lblCNP">CNP</label>
+				<input type="text" name="CNP" placeholder="CNP" id="CNP">
+
+				<label for="CUI" id="lblCUI" style="display:none;">CUI</label>
+				<input type="text" name="CUI" placeholder="CUI" id="CUI"  style="display:none;">
+				<div class="msg" id="msgErrorCNPCUI" style="width:90%;text-align:center;margin-bottom:15px;"></div>
+				<label for="name" id="lblName">
+					<i id="lblImgUser" class="fas fa-user"></i>
+				</label>
+				<input type="text" name="name" placeholder="Name" id="name" required>
+				<input type="hidden" id="latitude" name="latitude">
+				<input type="hidden" id="longitude" name="latitude">
+				<div style="width:90%;display:flex;margin-bottom: 20px;">
+					<label for="trial" style="width:200px;height:25px;">This will be a trial account?</label>
+					<input type="checkbox" name="trial" placeholder="" id="trial" style="width:20px;height:20px;margin-left:20px;"
+						   onchange="onCheckedChangeTrial(this)" checked>
+				</div>
+				<label for="key" id="lblKey">
+					<i class="fas fa-key"></i>
+				</label>
+				<input type="text" name="key" placeholder="Key" id="key" >
+
+				<div style="height:350px;width:350px;margin-bottom:30px;margin-top:10px;text-align:center;">
+					{% include "map.html" %}
+				</div>
+				<div id="coordinateLatitude" style="width:300px;text-align:center;"></div>
+				<div id="coordinateLongitude" style="width:300px;text-align:center;"></div>
+
+				<input type="submit" value="Register">
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		function getMarkerCoords2(){
+        	var coords = {latitude: markers[0].getPosition().lat(), longitude: markers[0].getPosition().lng()};
+        	$('#latitude').val(coords.latitude);
+        	$('#longitude').val(coords.longitude);
+        	$('#coordinateLatitude').html("Latitude: " + coords.latitude);
+        	$('#coordinateLongitude').html("Longitude: " + coords.longitude);
+        	event.preventDefault();
+  			return false;
+      	}
+
+		function submitRegister(e){
+			var allGood = true;
+			var typePers = $('input[name=personType]:checked', '#formRegister').val();
+			if(typePers === 'pf'){
+				if(!$('#CNP').val()){
+					allGood = false;
+					$("#msgErrorCNPCUI").html("Please enter CNP");
+				}
+			}else if(typePers === 'pj'){
+				if(!$('#CUI').val()){
+					allGood = false;
+					$("#msgErrorCNPCUI").html("Please enter CUI");
+				}
+			}
+
+			if(!allGood){
+				e.preventDefault();
+  				return false;
+			}
+
+		}
+
+		function onCheckedChangeTrial(element){
+			if(element.checked){
+				hideExtraField();
+			}else{
+				showExtraFields();
+			}
+		}
+
+		function hideExtraField(){
+			$('#lblKey').hide();
+			$('#key').hide();
+		}
+
+		function showExtraFields(){
+			$('#lblKey').show();
+			$('#key').show();
+		}
+
+		$('.personTypeCls').click(function () {
+        	var typePers = $('input[name=personType]:checked', '#formRegister').val();
+        	if(typePers === 'pf'){
+        		$('#lblCNP').show();
+				$('#CNP').show();
+				$('#lblCUI').hide();
+				$('#CUI').hide();
+				$('#lblImgUser').removeClass('fa-briefcase').addClass('fa-user');
+        	}else{
+				$('#lblCNP').hide();
+				$('#CNP').hide();
+				$('#lblCUI').show();
+				$('#CUI').show();
+				$('#lblImgUser').removeClass('fa-user').addClass('fa-briefcase');
+        	}
+    	});
+
+    	$(document).ready(function () {
+    		$('input:radio[name=personType]').filter('[value=pf]').prop('checked', true);
+    		$('#trial').trigger('change');
+    	});
+
+	</script>
+	</body>
+</html>
