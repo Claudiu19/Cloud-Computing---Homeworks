@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <title>Translations</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            padding-left:10px;
+            padding-right:10px;
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        a.active {
+            background-color: #4CAF50 !important;
+            color: white;
+        }
+</style>
+</head>
+<body>
+<nav class="red lighten-1">
+    <div class="nav-wrapper">
+        <a class="active" href="home">Home</a>
+        <a href="translations">Translate</a>
+        <a href="text-to-speech">Text to speech</a>
+        <a href="#" id="title_a" class="brand-logo center">Translations</a>
+    </div>
+</nav>
+
+<main style="min-height: calc(100vh - 110px); display: inline-block; width: 100%;">
+    <div style="height:250px;padding-top:20px;padding-left:50px;">
+
+            <div style="float:left;width:380px;">
+                <div>
+                    <label for="initial-language-picker">Select your language</label>
+                    <select name="language-picker-select" id="initial-language-picker" style="width:100px;">
+                        <option lang="de" value="ro" selected>Romanian</option>
+                        <option lang="en" value="en">English</option>
+                        <option lang="fr" value="fr">French</option>
+                        <option lang="it" value="it">Italian</option>
+                    </select>
+                </div>
+                <div>
+                     <input id="initial-text"
+                       style="width:300px;height:150px;">
+                </div>
+            </div>
+            <div style="float:left;padding-left:40px;width:380px;">
+                <div>
+                    <label for="target-language-picker">Select your language</label>
+                    <select name="language-picker-select" id="target-language-picker" style="width:100px;">
+                        <option lang="de" value="ro">Romanian</option>
+                        <option lang="en" value="english" selected>English</option>
+                        <option lang="fr" value="fr">French</option>
+                        <option lang="it" value="it">Italian</option>
+                    </select>
+                </div>
+                <div>
+                    <input id="translated-text"
+                       style="width:300px;height:150px;">
+                </div>
+            </div>
+            <div style="display: block;">
+                <div>
+                    <button id="translateBtn" class="btn green" style="width:150px;">Translate</button>
+                </div>
+                <div style="padding-top:10px;">
+                    <button onclick="playAudio()"  class="btn green" style="width:150px;">Play Audio</button>
+                </div>
+                <div style="padding-top:10px;">
+                    <button onclick="pauseAudio()" class="btn green" style="width:150px;">Pause Audio</button>
+                </div>
+            </div>
+            <audio id="myAudio">
+                <source id="source_audio" src="../static/message_sound.mp3" type="audio/mpeg">
+            </audio>
+    </div>
+    <div>
+        <table>
+            <thead style="border: 1px solid black;">
+            <tr>
+                <th>Time</th>
+                <th>Initial language</th>
+                <th>Initial text</th>
+                <th>Target language</th>
+                <th>Translated text</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for translation in translations %}
+            <tr>
+                <td>{{ translation.time_cast }}</td>
+                <td>{{ translation.initial_language }}</td>
+                <td>{{ translation.initial_text }}</td>
+                <td>{{ translation.target_language }}</td>
+                <td>{{ translation.translated_text }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer class="page-footer font-small green pt-4" style="height:110px;">
+    <img src="../static/drctch.png" alt="-?-" style="float:right;margin-right:60px;">
+</footer>
+
+<script>
+
+    function translateText() {
+        var initial_language = document.getElementById('initial-language-picker').value;
+        var target_language = document.getElementById('target-language-picker').value;
+        var initial_text = document.getElementById('initial-text').value;
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (!window.alert(this.responseText)) {
+                    window.location.reload();
+                }
+            }
+        };
+        xhr.open("POST", "/translations", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("initial_language=" + initial_language + "&target_language=" + target_language +
+        "&initial_text=" + initial_text);
+    }
+
+    $('select').select2({ width: '170px', placeholder: "Select an Option", allowClear: true });
+
+    document.getElementById("translateBtn").addEventListener("click", function () {
+        translateText();
+    });
+    
+    var x = document.getElementById("myAudio");
+
+    function playAudio() {
+        x.play();
+    }
+
+    function pauseAudio() {
+        x.pause();
+    }
+
+</script>
+</body>
+</html>

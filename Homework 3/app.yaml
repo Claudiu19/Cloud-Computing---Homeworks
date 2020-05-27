@@ -1,0 +1,22 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT main:app
+
+runtime_config:
+  python_version: 3
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+env_variables:
+  GOOGLE_APPLICATION_CREDENTIALS: 'cloudt1-d683fc3b7ebe.json'
+  CLOUD_SQL_CONNECTION_NAME: 'cloudt1:europe-west1:db-instance'
+  DB_USER: 'root'
+  DB_PASS: '57js6E804y8Gb4im'
+  DB_NAME: 'DbCloudComputing'
+  DB_PUBLIC_IP: '35.233.43.207'
